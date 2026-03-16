@@ -1,0 +1,24 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "9.0.x"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - run: dotnet restore Tokvera.sln
+      - run: dotnet test Tokvera.sln --configuration Release
+      - run: dotnet build examples/ManualTracer/ManualTracer.csproj --configuration Release
+      - run: dotnet build examples/ProviderWrappers/ProviderWrappers.csproj --configuration Release
+      - run: dotnet build examples/OtelBridge/OtelBridge.csproj --configuration Release
+      - run: node scripts/check-canonical-contract.mjs
