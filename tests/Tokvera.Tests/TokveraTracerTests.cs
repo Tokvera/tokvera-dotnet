@@ -44,11 +44,11 @@ public sealed class TokveraTracerTests
         var root = await tracer.StartTraceAsync();
         await tracer.TrackOpenAIAsync(root, new ProviderRequest
         {
-            Model = "gpt-5.1-mini",
+            Model = "gpt-5-mini",
             Input = new { prompt = "Say hello" },
         }, () => Task.FromResult(new ProviderResult
         {
-            Model = "gpt-5.1-mini",
+            Model = "gpt-5-mini",
             Output = new { answer = "hello" },
             Usage = new TokveraEvent.Usage
             {

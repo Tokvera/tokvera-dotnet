@@ -23,7 +23,7 @@ await bridge.ExportAsync(new[]
         Attributes = new Dictionary<string, object?>
         {
             ["llm.provider"] = "openai",
-            ["gen_ai.request.model"] = "gpt-5.1-mini",
+            ["gen_ai.request.model"] = "gpt-5-mini",
             ["gen_ai.usage.prompt_tokens"] = 9,
             ["gen_ai.usage.completion_tokens"] = 5,
             ["gen_ai.usage.total_tokens"] = 14,

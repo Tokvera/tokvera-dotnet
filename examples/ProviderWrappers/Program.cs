@@ -19,11 +19,11 @@ var root = await tracer.StartTraceAsync(new TrackOptions
 
 await tracer.TrackOpenAIAsync(root, new ProviderRequest
 {
-    Model = "gpt-5.1-mini",
+    Model = "gpt-5-mini",
     Input = new { prompt = "Say hello from Tokvera .NET" },
 }, () => Task.FromResult(new ProviderResult
 {
-    Model = "gpt-5.1-mini",
+    Model = "gpt-5-mini",
     Output = new { text = "hello" },
     Usage = new TokveraEvent.Usage
     {
